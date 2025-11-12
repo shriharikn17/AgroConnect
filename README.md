@@ -1,3 +1,4 @@
+## Overview
 Sree Maruti Agro Kendra currently operates as a physical retail shop, which limits its customer 
 reach and makes inventory and sales management a manual process. This project aims to 
 create a dedicated e-commerce platform to bring the business online. The platform will solve 
@@ -6,7 +7,7 @@ customer base beyond the immediate locality. A key feature will be offering loca
 product availability and pricing, catering to the logistical and regional constraints of selling 
 agricultural products. 
  
-3. System Architecture 
+1. System Architecture 
 The application will follow a classic client-server architecture. The frontend, built with Next.js, will 
 communicate with a backend API, which in turn interacts with the MySQL database. 
 Frontend (Client) → Backend (REST API) → Database (MySQL) 
@@ -22,7 +23,7 @@ user sessions.
 ○  Backend → Render / Railway 
 ○  Database → Railway / PlanetScale / Aiven 
  
-4. Key Features 
+2. Key Features 
 Category  Features 
 Authentication & 
 Authorization 
@@ -47,7 +48,7 @@ pagination for easy management.
 Hosting  Both the frontend and backend will be deployed to live, publicly 
 accessible URLs for a complete production-ready application. 
  
-5. Tech Stack 
+3. Tech Stack 
 Layer  Technologies 
 Frontend  Next.js, React.js, CSS (in separate .css files), Fetch API / 
 Axios 
@@ -57,7 +58,7 @@ Authentication  JSON Web Tokens (JWT), bcrypt.js (for password hashing)
 Hosting  Vercel (Frontend), Render / Railway (Backend & Database) 
  
  
-6. API Overview 
+4. API Overview 
 Here is a sample list of REST API endpoints that will be implemented. 
 Endpoint  Metho
 d 
