@@ -1,10 +1,10 @@
-# AgroConnect 🌾
+# AgroConnect 
 
 AgroConnect is a comprehensive e-commerce platform designed for agricultural products. It connects farmers and customers, providing a seamless shopping experience for seeds, fertilizers, pesticides, and tools, along with a robust admin dashboard for management.
 
-## 🚀 Features
+## Features
 
-### 🛒 Customer Features
+### Customer Features
 -   **Product Catalog**: Browse a wide range of agricultural products with filtering by category.
 -   **Search**: Quickly find products by name or brand.
 -   **Cart Management**: Add items to cart, adjust quantities, and view total cost.
@@ -12,14 +12,14 @@ AgroConnect is a comprehensive e-commerce platform designed for agricultural pro
 -   **Order History**: View past orders and their status.
 -   **User Authentication**: Secure login and registration for customers.
 
-### 🛠 Admin Dashboard
+### Admin Dashboard
 -   **Dashboard Overview**: Quick access to key metrics.
 -   **Product Management**: Add, edit, and delete products. Manage stock levels and pricing.
 -   **Order Management**: View all customer orders, update statuses, and track sales.
 -   **Stock Control**: Automatic stock decrement upon order placement.
 -   **Secure Access**: Role-based authentication ensuring only admins access the dashboard.
 
-## � Tech Stack
+## Tech Stack
 
 -   **Frontend**: [Next.js 15](https://nextjs.org/) (React), CSS Modules
 -   **Backend**: Node.js, Express.js
@@ -27,7 +27,7 @@ AgroConnect is a comprehensive e-commerce platform designed for agricultural pro
 -   **ORM**: Prisma
 -   **Authentication**: JWT (JSON Web Tokens)
 
-## � Getting Started
+##  Getting Started
 
 1.  **Clone the repository**
     ```bash
@@ -70,7 +70,7 @@ AgroConnect is a comprehensive e-commerce platform designed for agricultural pro
     npm run dev
     ```
 
-## 📡 API Overview
+## API Overview
 
 ### Authentication
 | Method | Endpoint | Description |
@@ -102,6 +102,4 @@ AgroConnect is a comprehensive e-commerce platform designed for agricultural pro
 
 ---
 
-## 📄 License
 
-This project is licensed under the MIT License.
