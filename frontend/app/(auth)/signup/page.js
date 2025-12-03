@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import "../../../styles/Auth.css";
+import { API_URL } from "@/utils/config";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -32,7 +33,7 @@ export default function Signup() {
     }
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`, {
+      const res = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

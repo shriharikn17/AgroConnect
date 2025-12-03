@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../../context/CartContext";
 import "../../styles/Products.css";
+import { API_URL } from "@/utils/config";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -81,7 +82,7 @@ const Products = () => {
         if (minPrice) queryParams.append("minPrice", minPrice);
         if (maxPrice) queryParams.append("maxPrice", maxPrice);
 
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products?${queryParams.toString()}`);
+        const res = await fetch(`${API_URL}/api/products?${queryParams.toString()}`);
         const data = await res.json();
 
         // Handle both old (array) and new (object) API response formats temporarily
