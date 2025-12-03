@@ -1,96 +1,107 @@
-## Overview
-Sree Maruti Agro Kendra currently operates as a physical retail shop, which limits its customer 
-reach and makes inventory and sales management a manual process. This project aims to 
-create a dedicated e-commerce platform to bring the business online. The platform will solve 
-these issues by enabling online sales, automating inventory management, and expanding the 
-customer base beyond the immediate locality. A key feature will be offering location-specific 
-product availability and pricing, catering to the logistical and regional constraints of selling 
-agricultural products. 
- 
-1. System Architecture 
-The application will follow a classic client-server architecture. The frontend, built with Next.js, will 
-communicate with a backend API, which in turn interacts with the MySQL database. 
-Frontend (Client) → Backend (REST API) → Database (MySQL) 
-●  Frontend: Next.js with JavaScript and CSS for a dynamic, server-rendered user 
-experience. 
-●  Backend: Node.js with the Express.js framework to build a robust REST API. 
-●  Database: MySQL (Relational) for structured data storage of users, products, and 
-orders. 
-●  Authentication: JSON Web Token (JWT) will be used to secure the API and manage 
-user sessions. 
-●  Hosting: 
-○  Frontend → Vercel (Optimized for Next.js) 
-○  Backend → Render / Railway 
-○  Database → Railway / PlanetScale / Aiven 
- 
-2. Key Features 
-Category  Features 
-Authentication & 
-Authorization 
-User registration, login, and logout. Role-based access control to 
-distinguish between Customers and Admin (shop owner). 
-CRUD Operations  Admin will have full Create, Read, Update, and Delete capabilities for 
-products, categories, and inventory. Users can manage their profiles 
-and view orders. 
-Frontend Routing  Multi-page navigation including: Home, Products, Product Details, 
-Cart, Checkout, User Profile (with order history), Admin Dashboard, 
-Login, and Signup pages. 
-Location-Based 
-Services 
-The system will prompt users for their location (e.g., pincode or 
-district). Based on this, it will display available products and show 
-region-specific pricing. 
-Product Discovery  Users can easily find products using advanced filtering (by category, 
-brand), searching (by name), and sorting (by price, name). 
-Admin Dashboard  A secure area for the shop owner to manage inventory, view sales 
-data, process orders, and update product information with 
-pagination for easy management. 
-Hosting  Both the frontend and backend will be deployed to live, publicly 
-accessible URLs for a complete production-ready application. 
- 
-3. Tech Stack 
-Layer  Technologies 
-Frontend  Next.js, React.js, CSS (in separate .css files), Fetch API / 
-Axios 
-Backend  Node.js, Express.js 
-Database  MySQL, Sequelize (ORM for easier database interaction) 
-Authentication  JSON Web Tokens (JWT), bcrypt.js (for password hashing) 
-Hosting  Vercel (Frontend), Render / Railway (Backend & Database) 
- 
- 
-4. API Overview 
-Here is a sample list of REST API endpoints that will be implemented. 
-Endpoint  Metho
-d 
-Description  Access 
-/api/auth/regis
-ter 
-POST  Registers a new customer.  Public 
-/api/auth/login  POST  Authenticates a user and returns a JWT.  Public 
-/api/products  GET  Fetches all products. Supports query 
-params for location, search, sort, filter, and 
-page. 
-Public 
-/api/products/:
-id 
-GET  Fetches details for a single product.  Public 
-/api/products  POST  Creates a new product.  Admin only 
-/api/products/:
-id 
-PUT  Updates an existing product's details.  Admin only 
-/api/products/:
-id 
-DELET
-E 
-Deletes a product from the database.  Admin only 
-/api/orders  POST  Allows an authenticated user to place a 
-new order. 
-Authenticated 
-User 
-/api/orders/use
-r 
-GET  Fetches the order history for the logged-in 
-user. 
-Authenticated 
-User 
-/api/orders/all  GET  Fetches all customer orders for the admin.  Admin only
+# AgroConnect 🌾
+
+AgroConnect is a comprehensive e-commerce platform designed for agricultural products. It connects farmers and customers, providing a seamless shopping experience for seeds, fertilizers, pesticides, and tools, along with a robust admin dashboard for management.
+
+## 🚀 Features
+
+### 🛒 Customer Features
+-   **Product Catalog**: Browse a wide range of agricultural products with filtering by category.
+-   **Search**: Quickly find products by name or brand.
+-   **Cart Management**: Add items to cart, adjust quantities, and view total cost.
+-   **Secure Checkout**: Place orders securely (simulated payment flow).
+-   **Order History**: View past orders and their status.
+-   **User Authentication**: Secure login and registration for customers.
+
+### 🛠 Admin Dashboard
+-   **Dashboard Overview**: Quick access to key metrics.
+-   **Product Management**: Add, edit, and delete products. Manage stock levels and pricing.
+-   **Order Management**: View all customer orders, update statuses, and track sales.
+-   **Stock Control**: Automatic stock decrement upon order placement.
+-   **Secure Access**: Role-based authentication ensuring only admins access the dashboard.
+
+## � Tech Stack
+
+-   **Frontend**: [Next.js 15](https://nextjs.org/) (React), CSS Modules
+-   **Backend**: Node.js, Express.js
+-   **Database**: PostgreSQL (via NeonDB/Supabase)
+-   **ORM**: Prisma
+-   **Authentication**: JWT (JSON Web Tokens)
+
+## � Getting Started
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/shriharikn17/AgroConnect.git
+    cd AgroConnect
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    # Frontend
+    cd frontend
+    npm install
+
+    # Backend
+    cd ../backend
+    npm install
+    ```
+
+3.  **Environment Setup**
+    -   Create `.env` in `backend/` with:
+        ```env
+        DATABASE_URL="postgresql://user:password@host:port/db"
+        JWT_SECRET="your_secret_key"
+        PORT=4004
+        ```
+    -   Create `.env.local` in `frontend/` with:
+        ```env
+        NEXT_PUBLIC_API_URL="http://127.0.0.1:4004"
+        ```
+
+4.  **Run the Application**
+    ```bash
+    # Terminal 1: Backend
+    cd backend
+    npx prisma migrate dev
+    npm start
+
+    # Terminal 2: Frontend
+    cd frontend
+    npm run dev
+    ```
+
+## 📡 API Overview
+
+### Authentication
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/auth/register` | Register a new user (Customer/Admin) |
+| `POST` | `/api/auth/login` | Login and receive JWT token |
+
+### Products
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/products` | Get all products (supports `?limit=N`) |
+| `GET` | `/api/products/:id` | Get single product details |
+| `POST` | `/api/products` | Create a new product (Admin only) |
+| `PUT` | `/api/products/:id` | Update a product (Admin only) |
+| `DELETE` | `/api/products/:id` | Delete a product (Admin only) |
+
+### Orders
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/orders` | Place a new order (Updates stock) |
+| `GET` | `/api/orders/user` | Get logged-in user's orders |
+| `GET` | `/api/orders/all` | Get ALL orders (Admin only) |
+| `GET` | `/api/orders/:id` | Get specific order details |
+
+### Categories
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/categories` | Get all product categories |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
