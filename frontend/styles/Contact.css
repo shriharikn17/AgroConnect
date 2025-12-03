@@ -1,0 +1,110 @@
+.contact-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+}
+
+.contact-section {
+    flex: 1;
+    padding: 4rem 1.5rem;
+    max-width: 48rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.contact-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact-form-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-surface);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+}
+
+.submit-btn {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.message-success {
+    color: #059669;
+    background-color: #d1fae5;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.message-error {
+    color: #dc2626;
+    background-color: #fee2e2;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    font-weight: 500;
+}

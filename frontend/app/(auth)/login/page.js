@@ -1,106 +1,103 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // ✅ import this
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useAuth } from "../../../context/AuthContext";
+import "../../../styles/Auth.css";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const { login } = useAuth();
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter(); // ✅ initialize router
+  const router = useRouter();
 
-  const handleLogin = async (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setMessage("");
+    setError("");
 
     try {
-      const response = await fetch("http://localhost:4004/login", {
+      const res = await fetch("http://127.0.0.1:4004/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const data = await res.json();
 
-      if (data.success) {
-        localStorage.setItem("token", data.token); // ✅ store JWT token
-        setMessage("✅ Login successful!");
-
-        // ✅ redirect to homepage after short delay
-        setTimeout(() => {
-          router.push("/"); // navigates to homepage
-        }, 1000);
+      if (res.ok) {
+        // Use context login to update state immediately
+        // Force CUSTOMER role for main login
+        login(data.token, data.user.username, "CUSTOMER");
+        router.push("/");
       } else {
-        setMessage(`❌ ${data.message}`);
+        setError(data.error || "Login failed");
       }
-    } catch (error) {
-      console.error(error);
-      setMessage("⚠️ Server error. Try again later.");
+      setError(data.error || "Login failed");
+    }
+    catch (err) {
+      setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-green-50">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-96">
-        <h1 className="text-3xl font-bold text-center text-green-700 mb-6">
-          Login
-        </h1>
-
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Username
-            </label>
+    <div className="auth-container">
+      <div className="auth-card">
+        <h2 className="auth-title">
+          Welcome Back
+        </h2>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-group">
+            <label className="form-label">Username</label>
             <input
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
-              placeholder="Enter username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              className="form-input"
+              required
             />
           </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Password
-            </label>
+          <div className="form-group">
+            <label className="form-label">Password</label>
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
-              placeholder="Enter password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="form-input"
+              required
             />
           </div>
 
           <button
             type="submit"
+            className="auth-btn"
             disabled={loading}
-            className={`w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg transition-all ${
-              loading ? "opacity-60 cursor-not-allowed" : ""
-            }`}
           >
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        {message && (
-          <p
-            className={`text-center mt-4 font-medium ${
-              message.includes("✅") ? "text-green-600" : "text-red-500"
-            }`}
-          >
-            {message}
+        {error && (
+          <p className="auth-message message-error">
+            {error}
           </p>
         )}
 
-        <p className="text-center text-sm text-gray-600 mt-6">
-          New user?{" "}
-          <Link href="/signup" className="text-green-700 hover:underline font-medium">
+        <p className="auth-footer">
+          Don't have an account?{" "}
+          <Link href="/signup" className="auth-link">
             Sign up
           </Link>
         </p>

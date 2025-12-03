@@ -1,0 +1,201 @@
+/* =========================================
+   Admin Shared Components
+   ========================================= */
+
+/* Headers */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.admin-title {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: var(--admin-text-main);
+    margin: 0;
+}
+
+/* Buttons */
+.admin-btn,
+.refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    background-color: var(--admin-primary);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    gap: 0.5rem;
+}
+
+.admin-btn:hover,
+.refresh-btn:hover {
+    background-color: var(--admin-primary-hover);
+}
+
+.admin-btn-danger {
+    background-color: var(--status-danger-text);
+}
+
+.admin-btn-danger:hover {
+    background-color: #7f1d1d;
+}
+
+/* Tables */
+.admin-table-container,
+.orders-table-container {
+    background-color: var(--admin-card-bg);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--admin-border);
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.admin-table,
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table th,
+.orders-table th {
+    background-color: #f8fafc;
+    padding: 1rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--admin-text-muted);
+    border-bottom: 1px solid var(--admin-border);
+    white-space: nowrap;
+}
+
+.admin-table td,
+.orders-table td {
+    padding: 1.25rem 1.5rem;
+    color: var(--admin-text-main);
+    border-bottom: 1px solid var(--admin-border);
+    vertical-align: top;
+}
+
+.admin-table tr:last-child td,
+.orders-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tr:hover td,
+.orders-table tr:hover td {
+    background-color: #f9fafb;
+}
+
+/* Forms */
+.admin-form {
+    background-color: var(--admin-card-bg);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--admin-border);
+    max-width: 40rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--admin-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--admin-text-main);
+    background-color: white;
+    transition: border-color 0.15s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--admin-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.status-badge.completed {
+    background-color: var(--status-success-bg);
+    color: var(--status-success-text);
+}
+
+.status-badge.pending {
+    background-color: var(--status-warning-bg);
+    color: var(--status-warning-text);
+}
+
+.status-badge.cancelled {
+    background-color: var(--status-danger-bg);
+    color: var(--status-danger-text);
+}
+
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .admin-table th,
+    .admin-table td,
+    .orders-table th,
+    .orders-table td {
+        padding: 0.75rem;
+    }
+
+    .status-badge {
+        width: 100%;
+        justify-content: center;
+    }
+}

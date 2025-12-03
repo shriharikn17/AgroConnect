@@ -1,0 +1,51 @@
+/* =========================================
+   Admin Authentication (Login/Signup)
+   ========================================= */
+
+.admin-auth-card {
+    background-color: var(--admin-card-bg);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--admin-border);
+    width: 100%;
+    max-width: 28rem;
+    /* ~450px */
+    margin: 0 auto;
+}
+
+.admin-auth-card .admin-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.admin-auth-card .admin-btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.auth-links {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.auth-links a {
+    color: var(--admin-primary);
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.auth-back-link {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.auth-back-link a {
+    color: var(--admin-text-muted);
+    text-decoration: none;
+}

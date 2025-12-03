@@ -1,0 +1,185 @@
+.about-container {
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Hero Section */
+.about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1770&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 4rem;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.about-hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Content Sections */
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+.about-section {
+    margin-bottom: 6rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-primary);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Story Section */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+}
+
+.story-image {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Mission Cards */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.mission-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--color-surface);
+    text-align: center;
+}
+
+.mission-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    background: var(--color-surface);
+    padding: 1rem;
+    border-radius: 50%;
+    color: var(--color-primary);
+}
+
+.mission-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+}
+
+.mission-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* Stats Section */
+.stats-container {
+    background-color: var(--color-primary-dark);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.stat-item h4 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--color-secondary);
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}

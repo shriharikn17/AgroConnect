@@ -1,0 +1,49 @@
+/* =========================================
+   Admin Orders Page Specifics
+   ========================================= */
+
+.customer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.customer-name {
+    font-weight: 600;
+    color: var(--admin-text-main);
+}
+
+.customer-id {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+}
+
+.order-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-items-list li {
+    padding: 0.25rem 0;
+    font-size: 0.875rem;
+    color: var(--admin-text-muted);
+    border-bottom: 1px dashed var(--admin-border);
+}
+
+.order-items-list li:last-child {
+    border-bottom: none;
+}
+
+.order-total {
+    font-family: 'Monaco', monospace;
+    font-weight: 700;
+    color: var(--admin-text-main);
+}
+
+.no-orders {
+    text-align: center;
+    padding: 3rem;
+    color: var(--admin-text-muted);
+    font-style: italic;
+}

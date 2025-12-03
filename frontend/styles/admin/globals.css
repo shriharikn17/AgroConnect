@@ -1,0 +1,122 @@
+/* =========================================
+   Admin Global Variables & Utilities
+   ========================================= */
+
+:root {
+    /* Color Palette */
+    --admin-primary: #4f46e5;
+    /* Indigo 600 */
+    --admin-primary-hover: #4338ca;
+    /* Indigo 700 */
+    --admin-bg: #f3f4f6;
+    /* Gray 100 */
+    --admin-sidebar-bg: #111827;
+    /* Gray 900 */
+    --admin-card-bg: #ffffff;
+    /* White */
+    --admin-text-main: #1f2937;
+    /* Gray 800 */
+    --admin-text-muted: #6b7280;
+    /* Gray 500 */
+    --admin-border: #e5e7eb;
+    /* Gray 200 */
+
+    /* Status Colors */
+    --status-success-bg: #dcfce7;
+    --status-success-text: #166534;
+    --status-warning-bg: #fef9c3;
+    --status-warning-text: #854d0e;
+    --status-danger-bg: #fee2e2;
+    --status-danger-text: #991b1b;
+
+    /* Spacing & Layout */
+    --sidebar-width: 16rem;
+    /* 256px */
+    --header-height: 4.5rem;
+    /* 72px */
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Utilities */
+.text-right {
+    text-align: right;
+}
+
+.font-mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-muted {
+    color: var(--admin-text-muted);
+}
+
+/* Loading & Error */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+    color: var(--admin-text-muted);
+}
+
+.loading-spinner::after {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--admin-border);
+    border-top-color: var(--admin-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-message {
+    background-color: var(--status-danger-bg);
+    color: var(--status-danger-text);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 30rem;
+}
+
+.error-message h3 {
+    color: var(--status-danger-text);
+    margin-bottom: 0.5rem;
+}
+
+.error-message p {
+    color: var(--admin-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.retry-btn {
+    background-color: var(--status-danger-text);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.retry-btn:hover {
+    opacity: 0.9;
+}
