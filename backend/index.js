@@ -347,3 +347,5 @@ app.post("/api/contact", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on the port ${PORT}`);
 });
+
+module.exports = app;
