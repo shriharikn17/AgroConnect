@@ -21,7 +21,7 @@ export default function OrderConfirmation() {
             }
 
             try {
-                const res = await fetch(`http://127.0.0.1:4004/api/orders/${id}`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

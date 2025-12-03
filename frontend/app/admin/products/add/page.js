@@ -22,7 +22,7 @@ export default function AddProduct() {
         // Fetch categories for dropdown
         const fetchCategories = async () => {
             try {
-                const res = await fetch("http://127.0.0.1:4004/api/categories");
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/categories`);
                 if (res.ok) {
                     const data = await res.json();
                     setCategories(data);
@@ -53,7 +53,7 @@ export default function AddProduct() {
         }
 
         try {
-            const res = await fetch("http://127.0.0.1:4004/api/products", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -20,7 +20,7 @@ export default function Orders() {
 
             try {
                 console.log("Fetching orders for user...");
-                const res = await fetch("http://127.0.0.1:4004/api/orders/user", {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders/user`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

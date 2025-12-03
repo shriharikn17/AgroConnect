@@ -18,7 +18,7 @@ export default function AdminOrders() {
             const token = localStorage.getItem("token");
 
             console.log("Fetching orders...");
-            const res = await fetch("http://127.0.0.1:4004/api/orders/all", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders/all`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

@@ -10,7 +10,7 @@ export default function AdminProducts() {
     const fetchProducts = async () => {
         try {
             // Fetch all products (pagination might be needed later, but for now fetch all)
-            const res = await fetch("http://127.0.0.1:4004/api/products?limit=1000");
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products?limit=1000`);
             if (res.ok) {
                 const data = await res.json();
                 // Handle both array and object response formats
@@ -32,7 +32,7 @@ export default function AdminProducts() {
 
         const token = localStorage.getItem("token");
         try {
-            const res = await fetch(`http://127.0.0.1:4004/api/products/${id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/${id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,

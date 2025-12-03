@@ -47,7 +47,7 @@ export default function Checkout() {
                 price: item.price,
             }));
 
-            const res = await fetch("http://127.0.0.1:4004/api/orders", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -24,13 +24,13 @@ export default function EditProduct({ params }) {
         const fetchData = async () => {
             try {
                 // Fetch categories
-                const catRes = await fetch("http://127.0.0.1:4004/api/categories");
+                const catRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/categories`);
                 if (catRes.ok) {
                     setCategories(await catRes.json());
                 }
 
                 // Fetch product details
-                const prodRes = await fetch(`http://127.0.0.1:4004/api/products/${id}`);
+                const prodRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/${id}`);
                 if (prodRes.ok) {
                     const product = await prodRes.json();
                     setFormData({
@@ -67,7 +67,7 @@ export default function EditProduct({ params }) {
         const token = localStorage.getItem("token");
 
         try {
-            const res = await fetch(`http://127.0.0.1:4004/api/products/${id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
